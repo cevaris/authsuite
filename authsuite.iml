@@ -8,6 +8,9 @@
         <RAILS_FACET_CONFIG_ID NAME="RAILS_FACET_APPLICATION_ROOT" VALUE="$MODULE_DIR$" />
       </configuration>
     </facet>
+    <facet type="Python" name="Python">
+      <configuration sdkName="python" />
+    </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
@@ -22,6 +25,7 @@
     </content>
     <orderEntry type="jdk" jdkName="RVM: ruby-2.2.2 [authsuite]" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="python interpreter library" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actioncable (v5.0.2, RVM: ruby-2.2.2 [authsuite]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionmailer (v5.0.2, RVM: ruby-2.2.2 [authsuite]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionpack (v5.0.2, RVM: ruby-2.2.2 [authsuite]) [gem]" level="application" />
