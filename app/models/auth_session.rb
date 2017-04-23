@@ -1,13 +1,13 @@
 require 'securerandom'
 
 class AuthSession < ApplicationRecord
+  include ActiveModel::Serialization
+
   belongs_to :api_token
   before_save :default_values
 
-  validates :identity, presence: true
-  validates :identity_type, presence: true
-  validates_uniqueness_of :token
-  validates_uniqueness_of :receipt
+  validates :identity, :identity_type, presence: true
+  validates_uniqueness_of :token, :receipt
   after_validation :check_identity
 
   STATE_SENT = 'sent'
@@ -49,7 +49,7 @@ class AuthSession < ApplicationRecord
           errors.add(:identity, "#{self.identity} is not a valid email")
         end
       else
-        errors.add(:identity_type, "#{self.identity_type} not supported")
+        errors.add(:identity_type, "'#{self.identity_type}' not supported")
     end
   end
 

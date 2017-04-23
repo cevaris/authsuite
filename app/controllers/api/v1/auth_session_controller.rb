@@ -11,7 +11,7 @@ class Api::V1::AuthSessionController < ApplicationController
 
     @auth_session = AuthSession.find_by_receipt(receipt_param)
     if @auth_session
-      render json: @auth_session.to_json
+      render json: @auth_session, serializer: AuthSessionReceiptSerializer
     else
       render status: :not_found, json: {message: "auth session found for receipt #{receipt_param}"}
     end
@@ -22,7 +22,7 @@ class Api::V1::AuthSessionController < ApplicationController
     @auth_session.api_token = @current_api_token
 
     if @auth_session.save
-      render json: @auth_session.to_json
+      render json: @auth_session, serializer: AuthSessionReceiptSerializer
     else
       render json: {errors: @auth_session.errors.full_messages}
     end

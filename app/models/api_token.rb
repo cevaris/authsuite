@@ -1,6 +1,8 @@
 require 'securerandom'
 
 class ApiToken < ApplicationRecord
+  include ActiveModel::Serialization
+
   has_many :auth_sessions
   before_save :default_values
 
