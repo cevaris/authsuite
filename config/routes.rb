@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get 'welcome.json', to: 'welcome#show'
-      get 'auth.json', to: 'api_token#authenticate'
+
+      get 'auth', to: 'api_token#show'
+      post 'auth', to: 'api_token#create'
     end
   end
 

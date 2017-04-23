@@ -3,6 +3,9 @@ require 'securerandom'
 class ApiToken < ApplicationRecord
   before_save :default_values
 
+  validates_uniqueness_of :email
+  validates_uniqueness_of :token
+
   enum states: {
       active: 0,
       deactivated: 1,
