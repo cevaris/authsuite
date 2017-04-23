@@ -2,6 +2,7 @@ require 'securerandom'
 
 class AuthSession < ApplicationRecord
   include ActiveModel::Serialization
+  include AASM
 
   belongs_to :api_token
   before_save :default_values
@@ -10,14 +11,21 @@ class AuthSession < ApplicationRecord
   validates_uniqueness_of :token, :receipt
   after_validation :check_identity
 
-  STATE_SENT = 'sent'
-  STATE_ACCEPTED = 'accepted'
-  STATE_REJECTED = 'rejected'
-  enum state: {STATE_SENT => 0, STATE_ACCEPTED => 1, STATE_REJECTED => 2, }
+  enum state: {sent: 0, accepted: 1, rejected: 2, }
+  enum identity_type: {email: 0, phone: 1, }
 
-  IDENTITY_TYPE_EMAIL = 'email'
-  IDENTITY_TYPE_PHONE = 'phone'
-  enum identity_type: {IDENTITY_TYPE_EMAIL => 0, IDENTITY_TYPE_PHONE => 1, }
+  aasm column: :state, enum: true do
+    state :sent, :initial => true
+    state :accepted
+    state :rejected
+
+    event :accept do
+      transitions from: [:accepted, :sent], to: :accepted
+    end
+    event :reject do
+      transitions from: [:rejected, :sent], to: :rejected
+    end
+  end
 
   private
 

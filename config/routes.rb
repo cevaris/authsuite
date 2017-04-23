@@ -5,12 +5,13 @@ Rails.application.routes.draw do
       namespace :v1 do
         get 'welcome', to: 'welcome#show'
 
-        get 'auth/tokens', to: 'api_token#show'
-        post 'auth/tokens', to: 'api_token#create'
+        get 'auth/token', to: 'api_token#show'
+        post 'auth/token', to: 'api_token#create'
 
-        get 'auth/sessions', to: 'auth_session#show'
-        post 'auth/sessions/token/:token/:action', to: 'auth_session#token_action'
-        post 'auth/sessions', to: 'auth_session#create'
+        get 'auth/session/status', to: 'auth_session#show_with_receipt'
+        post 'auth/session/token/accept', to: 'auth_session#token_accept'
+        post 'auth/session/token/reject', to: 'auth_session#token_reject'
+        post 'auth/session', to: 'auth_session#create'
       end
     end
   end

@@ -26,6 +26,7 @@
     <orderEntry type="jdk" jdkName="RVM: ruby-2.2.2 [authsuite]" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="python interpreter library" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aasm (v4.12.0, RVM: ruby-2.2.2 [authsuite]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actioncable (v5.0.2, RVM: ruby-2.2.2 [authsuite]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionmailer (v5.0.2, RVM: ruby-2.2.2 [authsuite]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionpack (v5.0.2, RVM: ruby-2.2.2 [authsuite]) [gem]" level="application" />
