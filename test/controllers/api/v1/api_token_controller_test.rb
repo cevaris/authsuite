@@ -15,16 +15,16 @@ class Api::V1::ApiTokenControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'can get api token' do
-    @api_token = api_tokens(:one)
+    api_token = api_tokens(:one)
 
-    get api_v1_token_path(format: :json), headers: {HEADER_API_TOKEN => @api_token.token}
+    get api_v1_token_path(format: :json), headers: {HEADER_API_TOKEN => api_token.token}
     assert_response :success
 
     response_body = response.parsed_body
 
     assert_not_nil response_body['token']
-    assert_equal @api_token.state, response_body['state']
-    assert_equal @api_token.email, response_body['email']
+    assert_equal api_token.state, response_body['state']
+    assert_equal api_token.email, response_body['email']
   end
 
   test 'can handle missing invalid parameters' do

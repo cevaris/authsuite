@@ -2,16 +2,16 @@
 
 one:
   identity: one@mail.com
-  identity_type: 1
-  token: oneReceiptoneReceiptoneReceipt
-  receipt: abcdefghijklmnopqrstuvwyxz
-  state: 1
+  identity_type: <%= AuthSession.identity_types[:email] %>
+  token: abcdefghijklmnopqrstuvwyxz
+  receipt: oneReceiptoneReceiptoneReceipt
+  state:  <%= AuthSession.states[:sent] %>
   api_token: one
 
 two:
   identity: two@mail.com
-  identity_type: 1
+  identity_type: <%= AuthSession.identity_types[:email] %>
   receipt: twoReceipttwoReceipttwoReceipt
   token: twoTokentwoTokentwoToken
-  state: 1
+  state:  <%= AuthSession.states[:sent] %>
   api_token: two

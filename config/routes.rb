@@ -8,12 +8,10 @@ Rails.application.routes.draw do
         resources :tokens, controller: 'api_token', only: [:create]
         get 'tokens', to: 'api_token#show', as: :token
 
-        namespace :sessions do
-          post '/', to: 'auth_session#create'
-          post 'tokens/:token/accept', to: 'auth_session#token_accept'
-          post 'tokens/:token/reject', to: 'auth_session#token_reject'
-          get 'receipts/:receipt/status', to: 'auth_session#show_with_receipt'
-        end
+        post 'sessions/', to: 'auth_session#create', as: :sessions
+        post 'sessions/tokens/:token/accept', to: 'auth_session#token_accept', as: :session_accept
+        post 'sessions/tokens/:token/reject', to: 'auth_session#token_reject', as: :session_reject
+        get 'sessions/receipts/:receipt/status', to: 'auth_session#show_with_receipt', as: :session_status
 
       end
     end
