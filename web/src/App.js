@@ -1,13 +1,20 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 class App extends Component {
   componentDidMount() {
     window.fetch('/api/v1/welcome.json')
       .then(response => response.json())
       .then(json => console.log(json, json))
-      .catch(error => console.log(error))
+      .catch(error => console.log(error));
+
+
+    const script = document.createElement("script");
+    script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+    script.async = true;
+    script.innerHTML = '(adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-1819084418442309", enable_page_level_ads: true });';
+    document.body.appendChild(script);
   }
 
   render() {
