@@ -1,6 +1,6 @@
 # AuthSuite
 
-Rails/React advertized driven authentication
+Rails/React advertised driven authentication
 
 
 
