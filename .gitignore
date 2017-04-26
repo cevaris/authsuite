@@ -21,10 +21,7 @@
 .byebug_history
 
 node_modules/
-.idea/*
-.idea/*.xml
-.idea/*.iml
-
+.idea/
 
 secrets/*
 !secrets/example-env.sh
