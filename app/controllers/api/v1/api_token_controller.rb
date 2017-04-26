@@ -11,7 +11,7 @@ class Api::V1::ApiTokenController < ApplicationController
     if @api_token.save
       render json: @api_token, serializer: ApiTokenSerializer
     else
-      render json: {errors: @api_token.errors.full_messages}
+      render status: :bad_request, json: {errors: @api_token.errors.full_messages}
     end
   end
 

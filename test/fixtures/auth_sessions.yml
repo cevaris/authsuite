@@ -1,15 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  identity: MyString
+  identity: one@mail.com
   identity_type: 1
-  token: MyString
+  token: oneReceiptoneReceiptoneReceipt
+  receipt: abcdefghijklmnopqrstuvwyxz
   state: 1
-  references: 
+  api_token: one
 
 two:
-  identity: MyString
+  identity: two@mail.com
   identity_type: 1
-  token: MyString
+  receipt: twoReceipttwoReceipttwoReceipt
+  token: twoTokentwoTokentwoToken
   state: 1
-  references: 
+  api_token: two
