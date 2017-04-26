@@ -25,7 +25,7 @@ class Api::V1::AuthSessionController < ApplicationController
 
   def token_accept
     # something is not right with invoke state actions
-    if @auth_session.accept! and @auth_session.save
+    if @auth_session.accept and @auth_session.save
       head :ok
     else
       render status: :bad_request, json: {errors: ["invalid state transition from #{@auth_session.state} to accepted state"]}
@@ -41,6 +41,10 @@ class Api::V1::AuthSessionController < ApplicationController
   end
 
   private
+
+  rescue_from AASM::InvalidTransition do |exception|
+    render status: :bad_request, json: {errors: [exception.message]}
+  end
 
   def auth_session_by_token
     valid_params = params.permit(:token)

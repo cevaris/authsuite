@@ -14,7 +14,7 @@ class AuthSession < ApplicationRecord
   enum state: {sent: 0, accepted: 1, rejected: 2, }
   enum identity_type: {email: 0, phone: 1, }
 
-  aasm column: :state, enum: true, whiny_persistence: true do
+  aasm column: :state, enum: true do
     state :sent, :initial => true
     state :accepted
     state :rejected

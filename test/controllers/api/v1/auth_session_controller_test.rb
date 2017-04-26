@@ -41,6 +41,21 @@ class Api::V1::AuthSessionControllerTest < ActionDispatch::IntegrationTest
     assert_auth_session_state(auth_session, 'rejected')
   end
 
+  test 'fails on invalid state auth session' do
+    auth_session = auth_sessions(:one)
+    assert_auth_session_state(auth_session, 'sent')
+    auth_session.accept!
+    post api_v1_session_reject_path(format: :json, token: auth_session.token)
+    assert_response :bad_request
+
+    auth_session = auth_sessions(:two)
+    assert_auth_session_state(auth_session, 'sent')
+    auth_session.reject!
+    post api_v1_session_accept_path(format: :json, token: auth_session.token)
+    assert_response :bad_request
+  end
+
+  private
 
   def assert_auth_session_state(auth_session, expected_state)
     get api_v1_session_status_path(format: :json, receipt: auth_session.receipt),
