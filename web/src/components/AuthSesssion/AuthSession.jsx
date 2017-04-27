@@ -1,10 +1,9 @@
-import React, {Component} from "react";
-import {Button, Col, Row} from "react-bootstrap";
+import React, { Component } from 'react';
 
 class AuthSession extends Component {
   render() {
     return (
-      <div className="home">
+      <div className='home'>
         <p>AuthSession</p>
       </div>
     );
