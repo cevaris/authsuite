@@ -1,6 +1,8 @@
 import React, {Component} from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import logo from "../assets/images/logo.svg";
+import Header from "./Shared/Header";
+import Home from "./Home/Home";
+import Footer from "./Shared/Footer";
 
 class App extends Component {
   componentDidMount() {
@@ -8,18 +10,13 @@ class App extends Component {
       .then(response => response.json())
       .then(json => console.log(json, json))
       .catch(error => console.log(error));
-
-
-    const script = document.createElement("script");
-    script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
-    script.async = true;
-    script.innerHTML = '(adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-1819084418442309", enable_page_level_ads: true });';
-    document.body.appendChild(script);
   }
 
   render() {
     return (
       <div className="App">
+        <Header />
+        <Home />
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
@@ -27,6 +24,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <Footer />
       </div>
     );
   }
