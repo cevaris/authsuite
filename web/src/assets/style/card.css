@@ -223,6 +223,15 @@
     border-bottom-left-radius: calc(0.25rem - 1px);
 }
 
+@media (min-width:34em) {
+    .card-deck > .card
+    {
+        width: 29%;
+        flex-wrap: wrap;
+        flex: initial;
+    }
+}
+
 @media (min-width: 576px) {
     .card-deck {
         display: -webkit-box;

@@ -1,4 +1,21 @@
+html {
+    height: 100%;
+}
 body {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.footer {
+    background-color: black;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50px;
+    padding-top: 10px;
+    color: white;
 }
 
 .navbar {
@@ -13,8 +30,17 @@ body {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    margin-bottom: 20px;
 }
 
 .max-height {
     height: 100%;
+}
+
+.home {
+    margin-bottom: 20px;
+}
+
+.home__about {
+    margin-bottom: 20px;
 }

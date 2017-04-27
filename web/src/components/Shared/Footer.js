@@ -5,11 +5,11 @@ class Footer extends Component {
   render() {
     const currYear = moment().format('YYYY');
     return (
-      <div>
+      <footer className="footer">
         <div className="container">
-          <p className="m-0 text-center text-white">Copyright © AuthQuick {currYear}</p>
+          <p className="text-center text-white">Copyright © AuthQuick {currYear}</p>
         </div>
-      </div>
+      </footer>
     );
   }
 }
