@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Button, Col, Row} from "react-bootstrap";
-import Card from "../Shared/Card";
+import {Card} from "../Shared";
 
 class Home extends Component {
   render() {

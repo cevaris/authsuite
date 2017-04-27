@@ -1,7 +1,6 @@
 import React, {Component} from "react";
-import Header from "./Shared/Header";
-import Home from "./Home/Home";
-import Footer from "./Shared/Footer";
+import {Footer, Header} from "./Shared";
+import {Home} from "./Home";
 
 class App extends Component {
   componentDidMount() {
