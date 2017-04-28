@@ -9,10 +9,6 @@ class ApplicationController < ActionController::API
     check_api_token || render_unauthorized
   end
 
-  def index
-    render file: 'public/index.html', layout: false
-  end
-
   private
 
   def check_api_token

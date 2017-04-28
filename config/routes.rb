@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   scope format: true, constraints: {format: :json} do
     namespace :api do
       namespace :v1 do
-        get 'welcome', to: 'welcome#show'
-
         resources :tokens, controller: 'api_token', only: [:create]
         get 'tokens', to: 'api_token#show', as: :token
 
@@ -17,5 +15,6 @@ Rails.application.routes.draw do
     end
   end
 
-  match '*', to: 'application#index', as: :root, via: :get
+  get 'test', to: 'react#show'
+  match '*path', to: 'react#index', as: :root, via: :get
 end

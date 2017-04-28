@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 
 export default class App extends Component {
   componentDidMount() {
-    window.fetch('/api/v1/welcome.json')
+    window.fetch('test.json')
       .then((response) => response.json())
       .then((json) => console.log(json, json))
       .catch((error) => console.log(error));
