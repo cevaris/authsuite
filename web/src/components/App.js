@@ -1,6 +1,5 @@
-import { Home } from './Home';
-import { Footer, Header } from './Shared';
-import React, { Component } from 'react';
+import {Footer, Header} from "./Shared";
+import React, {Component} from "react";
 
 class App extends Component {
   componentDidMount() {
@@ -11,10 +10,11 @@ class App extends Component {
   }
 
   render() {
+    console.log('app render');
     return (
-      <div className='App'>
+      <div>
         <Header />
-        <Home />
+        {this.props.children}
         <Footer />
       </div>
     );
