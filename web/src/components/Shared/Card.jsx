@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 
 class Card extends Component {
   render() {
-    const imageUrl = this.props.imageUrl || 'http://placehold.it/300x200';
+    const imageUrl = this.props.imageUrl || 'https://placehold.it/300x200';
     return (
       <div className='card'>
         <img alt='' className='card-img-top img-fluid' src={imageUrl}/>
