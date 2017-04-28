@@ -13,7 +13,7 @@ class Card extends Component {
           </p>
         </div>
         <div className='card-footer'>
-          <a className='btn btn-primary'>{this.props.buttonText} href={this.props.buttonLink} </a>
+          <a className='btn btn-primary' href={this.props.buttonLink}>{this.props.buttonText}</a>
         </div>
       </div>
     );

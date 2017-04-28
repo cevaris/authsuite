@@ -1,15 +1,46 @@
-import { Card } from '../Shared';
-import { Button, Col, Row } from 'react-bootstrap';
-import React, { Component } from 'react';
+import {Card} from "../Shared";
+import {Button, Col, Row} from "react-bootstrap";
+import React, {Component} from "react";
+import DemoAuthSession from "./DemoAuthSession";
 
-class Home extends Component {
+export default class Home extends Component {
   render() {
     return (
       <div className='home'>
-        <div className='business-header'>
-        </div>
 
         <div className='container'>
+
+          <div className='home__cards'>
+            <Row className='card-deck'>
+              <Col sm={4}>
+                <Card
+                  body='Create api token, make a simple HTTP request.'
+                  buttonLink='#get-started'
+                  buttonText='Get Started!'
+                  title='Setup is Quick'
+                />
+              </Col>
+
+              <Col sm={4}>
+                <Card
+                  body='You can authenticate via Email or SMS.'
+                  buttonLink='#demo'
+                  buttonText='Test run'
+                  title='Email/SMS'
+                />
+              </Col>
+
+              <Col sm={4}>
+                <Card
+                  body='Authenticate via your web browser or your phone.'
+                  buttonLink='#show-video'
+                  buttonText='Show me how'
+                  title='Cross Platform'
+                />
+              </Col>
+            </Row>
+          </div>
+
 
           <div className='home__about'>
             <Row>
@@ -46,35 +77,8 @@ class Home extends Component {
             </Row>
           </div>
 
-          <div className='home__cards'>
-            <Row className='card-deck'>
-              <Col sm={4}>
-                <Card
-                  body='Create api token, make a simple HTTP request.'
-                  buttonLink='#get-started'
-                  buttonText='Get Started!'
-                  title='Setup is Quick'
-                />
-              </Col>
-
-              <Col sm={4}>
-                <Card
-                  body='You can authenticate via Email or SMS.'
-                  buttonLink='#demo'
-                  buttonText='Test run'
-                  title='Email/SMS'
-                />
-              </Col>
-
-              <Col sm={4}>
-                <Card
-                  body='Authenticate via your web browser or your phone.'
-                  buttonLink='#show-video'
-                  buttonText='Show me how'
-                  title='Cross Platform'
-                />
-              </Col>
-            </Row>
+          <div className='home__demo'>
+            <DemoAuthSession />
           </div>
 
         </div>
@@ -82,5 +86,3 @@ class Home extends Component {
     );
   }
 }
-
-export default Home;
