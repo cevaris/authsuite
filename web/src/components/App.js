@@ -1,7 +1,7 @@
-import {Footer, Header} from "./Shared";
-import React, {Component} from "react";
+import { Footer, Header } from './Shared';
+import React, { Component, PropTypes } from 'react';
 
-class App extends Component {
+export default class App extends Component {
   componentDidMount() {
     window.fetch('/api/v1/welcome.json')
       .then((response) => response.json())
@@ -10,7 +10,6 @@ class App extends Component {
   }
 
   render() {
-    console.log('app render');
     return (
       <div>
         <Header />
@@ -19,6 +18,8 @@ class App extends Component {
       </div>
     );
   }
-}
 
-export default App;
+  static propTypes = {
+    children: PropTypes.object
+  }
+}

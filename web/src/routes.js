@@ -1,13 +1,14 @@
-import React from "react";
-import {NoMatch, Route} from "react-router";
-import AppContainer from "./containers/AppContainer";
-import HomeContainer from "./containers/HomeContainer";
+import AppContainer from './containers/AppContainer';
+import Error404 from './components/Shared/Error404';
+import HomeContainer from './containers/HomeContainer';
+import React from 'react';
+import { Route } from 'react-router';
 
 export const getRoutes = (store) => {
   return (
-    <Route component={AppContainer} name=' ' path="/">
-      <Route component={HomeContainer} path="/home"/>
-      <Route component={NoMatch} name='404: No Match for route' path='*'/>
+    <Route component={AppContainer} name=' '>
+      <Route component={HomeContainer} path='/'/>
+      <Route component={Error404} name='404: No Match for route' path='*'/>
     </Route>
   );
 };

@@ -1,5 +1,5 @@
 import { browserHistory } from 'react-router';
-import { createLogger } from 'redux-logger'
+import { createLogger } from 'redux-logger';
 import DevTools from '../components/DevTools';
 import { persistState } from 'redux-devtools';
 import rootReducer from '../reducers';
