@@ -6,6 +6,6 @@
   "scripts": {
     "build": "cd web && npm install && npm run build && cd ..",
     "deploy": "cp -a web/build/. public/",
-    "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
+    "postinstall": "npm run build && npm run deploy"
   }
 }
