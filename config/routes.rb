@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   end
 
   get 'test', to: 'react#show'
-  match '*path', to: 'react#index', as: :root, via: :get
+  root :to => 'react#index'
+  match '*path', to: 'react#index', via: :get
 end

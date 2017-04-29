@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 import { Footer, Header } from './Shared';
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 export default class App extends Component {
   componentDidMount() {

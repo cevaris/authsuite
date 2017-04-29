@@ -1,8 +1,9 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 class Card extends Component {
   render() {
-    const imageUrl = this.props.imageUrl || 'https://placehold.it/300x200';
+    const imageUrl = this.props.imageUrl || 'https://placehold.it/200x200';
     return (
       <div className='card'>
         <img alt='' className='card-img-top img-fluid' src={imageUrl}/>

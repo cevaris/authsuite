@@ -38,9 +38,19 @@ body {
 }
 
 .home {
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .home__about {
     margin-bottom: 20px;
+}
+
+.demo-auth-session__form {
+    margin-top: 20px;
+}
+
+.demo-auth-session {
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid lightgray;
 }
