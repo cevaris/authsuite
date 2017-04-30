@@ -1,2 +1,0 @@
-api: source secrets/dev-env.sh && bundle exec rails s -p 8080 -b 0.0.0.0
-web: cd web && HOST='0.0.0.0' PORT=3000 yarn start

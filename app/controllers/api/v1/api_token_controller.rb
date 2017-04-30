@@ -16,7 +16,7 @@ class Api::V1::ApiTokenController < ApplicationController
   end
 
   def api_token_params
-    params.require(:api_token).permit(:email)
+    params.permit(:email)
   end
 
 end

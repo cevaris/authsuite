@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  identity: one@mail.com
+  identity: one@example.com
   identity_type: <%= AuthSession.identity_types[:email] %>
   token: abcdefghijklmnopqrstuvwyxz
   receipt: oneReceiptoneReceiptoneReceipt
@@ -9,7 +9,7 @@ one:
   api_token: one
 
 two:
-  identity: two@mail.com
+  identity: two@example.com
   identity_type: <%= AuthSession.identity_types[:email] %>
   receipt: twoReceipttwoReceipttwoReceipt
   token: twoTokentwoTokentwoToken

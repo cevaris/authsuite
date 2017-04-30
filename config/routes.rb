@@ -11,6 +11,8 @@ Rails.application.routes.draw do
         post 'sessions/tokens/:token/reject', to: 'auth_session#token_reject', as: :session_reject
         get 'sessions/receipts/:receipt/status', to: 'auth_session#show_with_receipt', as: :session_status
 
+        post 'demo/sessions', to: 'demo#create', as: :demos_auth_sessions
+        get 'demo/sessions/status', to: 'demo#show', as: :demos_auth_session_status
       end
     end
   end

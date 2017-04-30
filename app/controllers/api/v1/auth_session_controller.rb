@@ -57,7 +57,7 @@ class Api::V1::AuthSessionController < ApplicationController
   end
 
   def auth_session_params
-    params.require(:auth_session).permit(:identity, :identity_type)
+    params.permit(:identity, :identity_type)
   end
 
 end

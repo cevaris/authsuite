@@ -59,3 +59,4 @@ end
 
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'aasm', '~> 4.12.0'
+gem 'faraday', '~> 0.11.0'

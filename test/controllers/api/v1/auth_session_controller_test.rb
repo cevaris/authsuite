@@ -6,7 +6,7 @@ class Api::V1::AuthSessionControllerTest < ActionDispatch::IntegrationTest
     test_email = 'test@email.com'
 
     post api_v1_sessions_path(format: :json),
-         params: {auth_session: {identity: test_email, identity_type: :email}},
+         params: {identity: test_email, identity_type: :email},
          headers: {HEADER_API_TOKEN => api_token.token}
 
     assert_response :success

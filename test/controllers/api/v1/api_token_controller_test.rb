@@ -2,8 +2,8 @@ require 'test_helper'
 
 class Api::V1::ApiTokenControllerTest < ActionDispatch::IntegrationTest
   test 'can create api token' do
-    test_email = 'test@mail.com'
-    api_token_params = {api_token: {email: test_email}}
+    test_email = 'test@example.com'
+    api_token_params = {email: test_email}
     post api_v1_tokens_path(format: :json), params: api_token_params
     assert_response :success
 
@@ -28,18 +28,13 @@ class Api::V1::ApiTokenControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'can handle missing invalid parameters' do
-    post api_v1_tokens_path(format: :json), params: {api_token: {email: 'not valid email'}}
+    post api_v1_tokens_path(format: :json), params: {email: 'not valid email'}
     assert_response :bad_request
 
-    post api_v1_tokens_path(format: :json), params: {api_token: {email: ''}}
+    post api_v1_tokens_path(format: :json), params: {email: ''}
     assert_response :bad_request
 
-    assert_raises(ActionController::ParameterMissing) do
-      post api_v1_tokens_path(format: :json), params: {api_token: {}}
-    end
-
-    assert_raises(ActionController::ParameterMissing) do
-      post api_v1_tokens_url(format: :json), params: {}
-    end
+    post api_v1_tokens_url(format: :json), params: {}
+    assert_response :bad_request
   end
 end
