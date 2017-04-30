@@ -16,7 +16,7 @@ class Api::V1::AuthSessionController < ApplicationController
     @auth_session = AuthSession.new(auth_session_params)
     @auth_session.api_token = @current_api_token
 
-    if @auth_session.save
+    if create_auth_session(@auth_session)
       render json: @auth_session, serializer: AuthSessionReceiptSerializer
     else
       render status: :bad_request, json: {errors: @auth_session.errors.full_messages}
@@ -44,6 +44,16 @@ class Api::V1::AuthSessionController < ApplicationController
 
   rescue_from AASM::InvalidTransition do |exception|
     render status: :bad_request, json: {errors: [exception.message]}
+  end
+
+  def create_auth_session(auth_session)
+    AuthSession.transaction do
+      auth_session_saved = @auth_session.save
+
+      # send notification
+
+      auth_session_saved
+    end
   end
 
   def auth_session_by_token
