@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+</head>
+<body>
+<h1>Thanks for using AuthQuick, <%= @auth_session.identity %>!</h1>
+<a href="<%= api_v1_session_accept_url(token: @auth_session.token, format: :json) %>">Click Here To Authenticate</a>
+</body>
+</html>

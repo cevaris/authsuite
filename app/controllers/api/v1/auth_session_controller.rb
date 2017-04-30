@@ -48,9 +48,10 @@ class Api::V1::AuthSessionController < ApplicationController
 
   def create_auth_session(auth_session)
     AuthSession.transaction do
-      auth_session_saved = @auth_session.save
+      auth_session_saved = @auth_session.save!
 
       # send notification
+      AuthSessionMailer.build_auth_session(@auth_session).deliver!
 
       auth_session_saved
     end
