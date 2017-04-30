@@ -1,11 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+demo:
+  email: demo@example.com
+  token: demodemodemodemodemodemodemo
+  state:  <%= ApiToken.states[:active] %>
+
 one:
   email: one@example.com
   token: lk32jl2kfj23lfj23lfkj23lkfj23lf
-  state: 1
+  state:  <%= ApiToken.states[:active] %>
 
 two:
   email: two@example.com
   token: df4f4fklwlejkflwdjfsldkjfsdlfj2
-  state: 1
+  state:  <%= ApiToken.states[:active] %>

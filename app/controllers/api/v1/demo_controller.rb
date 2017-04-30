@@ -1,18 +1,21 @@
 require 'json'
 
 class Api::V1::DemoController < ApplicationController
+  include ApiV1Helper
+
+  before_action :demo_api_token
 
   def show
   end
 
   def create
-    params
-    conn = Faraday.new(:url => request.host_with_port)
-    response = conn.post do |req|
-      req.url api_v1_sessions_path(format: :json)
-      req.headers['Content-Type'] = 'application/json'
-      req.headers[API_KEY_HEADER_NAME] = @api_token.token
-    end
+    puts auth_session_params
+    response = post_create_auth_session(
+        request.host_with_port,
+        @api_token.token,
+        auth_session_params['identity'],
+        auth_session_params['identity_type']
+    )
 
     puts response.body
     response_json = JSON.parse(response.body)
@@ -32,12 +35,8 @@ class Api::V1::DemoController < ApplicationController
     @api_token = ApiToken.find_by_token(demo_api_token)
   end
 
-  def demo_auth_session
-    params.permit(:identity, :identity_type)
-  end
-
   def auth_session_params
-    params.require(:auth_session).permit(:identity, :identity_type)
+    params.permit(:identity, :identity_type)
   end
 
 end

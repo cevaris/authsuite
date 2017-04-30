@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::API
-  include ActionController::HttpAuthentication::Token::ControllerMethods
 
   API_KEY_HEADER_NAME = 'X-AUTH-API-TOKEN'
 

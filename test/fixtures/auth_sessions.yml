@@ -1,9 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+demo:
+  identity: demo@example.com
+  identity_type: <%= AuthSession.identity_types[:email] %>
+  token: demoTokendemoTokendemoToken
+  receipt: demoReceiptdemoReceiptdemoReceipt
+  state:  <%= AuthSession.states[:sent] %>
+  api_token: demo
 
 one:
   identity: one@example.com
   identity_type: <%= AuthSession.identity_types[:email] %>
-  token: abcdefghijklmnopqrstuvwyxz
+  token: oneTokenoneTokenoneToken
   receipt: oneReceiptoneReceiptoneReceipt
   state:  <%= AuthSession.states[:sent] %>
   api_token: one
