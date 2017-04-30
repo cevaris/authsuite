@@ -9,7 +9,6 @@ class Api::V1::DemoController < ApplicationController
   end
 
   def create
-    puts auth_session_params
     response = post_create_auth_session(
         request.host_with_port,
         @api_token.token,
@@ -17,14 +16,13 @@ class Api::V1::DemoController < ApplicationController
         auth_session_params['identity_type']
     )
 
-    puts response.body
     response_json = JSON.parse(response.body)
     puts response_json
 
     if response.status == 200
       render json: {receipt: response_json['receipt']}
     else
-      render status: :service_unavailable, json: response_json
+      render status: response.status, json: response_json
     end
   end
 

@@ -5,8 +5,8 @@ module ApiV1Helper
     conn.post do |req|
       req.url api_v1_sessions_path(format: :json)
       req.headers['Content-Type'] = 'application/json'
-      req.body = {identity: identity, identity_type: identity_type}.to_json
       req.headers[ApplicationController::API_KEY_HEADER_NAME] = api_token_token
+      req.body = {identity: identity, identity_type: identity_type}.to_json
     end
   end
 
