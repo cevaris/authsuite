@@ -43,8 +43,8 @@ export default class AuthSession extends Component {
 
 
               <div className="well" style={{maxWidth: 400, margin: '0 auto 10px'}}>
-                <Button bsSize='large' bsStyle='primary' onClick={this.acceptAuthSession} block>Accept</Button>
-                <Button bsSize='large' bsStyle='danger' onClick={this.rejectAuthSession} block>Cancel</Button>
+                <Button bsSize='large' bsStyle='primary' onClick={this.acceptAuthSession} block disabled={!this.props.loadedGetAuthSession}>Accept</Button>
+                <Button bsSize='large' bsStyle='danger' onClick={this.rejectAuthSession} block disabled={!this.props.loadedGetAuthSession}>Cancel</Button>
               </div>
 
 
@@ -62,7 +62,8 @@ export default class AuthSession extends Component {
       acceptAuthSession: PropTypes.func.isRequired,
       rejectAuthSession: PropTypes.func.isRequired,
       getAuthSession: PropTypes.func.isRequired
-    }).isRequired
+    }).isRequired,
+    loadedGetAuthSession: PropTypes.bool.isRequired
   }
 
 }

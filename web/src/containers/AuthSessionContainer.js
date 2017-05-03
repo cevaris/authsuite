@@ -6,7 +6,7 @@ import AuthSession from '../components/AuthSession';
 function mapStateToProps(state) {
   return {
     ...state.app,
-    ...state.home
+    ...state.authSession
   };
 }
 

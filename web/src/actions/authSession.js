@@ -1,5 +1,9 @@
 import {apiAcceptAuthSession, apiGetAuthSession, apiRejectAuthSession} from "../api/authSession";
 
+export const ACCEPT_AUTH_SESSION = 'ACCEPT_AUTH_SESSION';
+export const REJECT_AUTH_SESSION = 'REJECT_AUTH_SESSION';
+export const GET_AUTH_SESSION = 'GET_AUTH_SESSION';
+
 export const acceptAuthSession = (token) => {
   return (dispatch) => apiAcceptAuthSession(token)
     .then((response) => {
@@ -34,7 +38,10 @@ export const rejectAuthSession = (token) => {
 export const getAuthSession = (token) => {
   return (dispatch) => apiGetAuthSession(token)
     .then((response) => {
-      console.log(response.data);
+      dispatch({
+        type: GET_AUTH_SESSION,
+        state: response.data
+      });
     })
     .catch((error) => {
       console.log('error', error)
