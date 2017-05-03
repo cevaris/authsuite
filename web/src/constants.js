@@ -6,3 +6,9 @@ export const authSessionPaths = {
   reject: (token) => `/api/v1/sessions/tokens/${token}/reject.json`,
   status: (receipt) => `/api/v1/sessions/receipts/${receipt}/status.json`
 };
+
+export const authSessionStates = {
+  accepted: 'accepted',
+  rejected: 'rejected',
+  sent: 'sent'
+};
