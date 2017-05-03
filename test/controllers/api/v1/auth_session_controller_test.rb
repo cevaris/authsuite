@@ -58,6 +58,10 @@ class Api::V1::AuthSessionControllerTest < ActionDispatch::IntegrationTest
   private
 
   def assert_auth_session_state(auth_session, expected_state)
+    get api_v1_session_token_status_path(format: :json, token: auth_session.token)
+    assert_response :success
+    assert_equal expected_state, response.parsed_body['state']
+
     get api_v1_session_status_path(format: :json, receipt: auth_session.receipt),
         headers: {HEADER_API_TOKEN => auth_session.api_token.token}
     assert_response :success
