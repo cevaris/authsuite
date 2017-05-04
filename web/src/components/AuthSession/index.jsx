@@ -1,7 +1,7 @@
-import { authSessionStates } from '../../constants';
-import PropTypes from 'prop-types';
-import { Breadcrumb, Button, Col, Row } from 'react-bootstrap';
-import React, { Component } from 'react';
+import {authSessionStates} from "../../constants";
+import PropTypes from "prop-types";
+import {Breadcrumb, Button, Col, Row} from "react-bootstrap";
+import React, {Component} from "react";
 
 export default class AuthSession extends Component {
 
@@ -83,24 +83,22 @@ export default class AuthSession extends Component {
     }
 
     return (
-      <div className='container'>
-        <div className='auth-session'>
+      <div className='auth-session'>
 
-          {this.breadcrumbs()}
+        {this.breadcrumbs()}
 
-          <Row>
-            <Col md={3}/>
-            <Col md={6}>
+        <Row>
+          <Col md={3}/>
+          <Col md={6}>
 
-              <div className='well' style={{ maxWidth: 400, margin: '0 auto 10px' }}>
-                {toRender}
-              </div>
+            <div className='well' style={{maxWidth: 400, margin: '0 auto 10px'}}>
+              {toRender}
+            </div>
 
-            </Col>
-            <Col md={3}/>
-          </Row>
+          </Col>
+          <Col md={3}/>
+        </Row>
 
-        </div>
       </div>
     );
   }

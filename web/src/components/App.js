@@ -15,8 +15,10 @@ export default class App extends Component {
     return (
       <div>
         <Header />
-        <FlashContainer />
-        {this.props.children}
+        <div className="container">
+          <FlashContainer />
+          {this.props.children}
+        </div>
         <Footer />
       </div>
     );
