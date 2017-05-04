@@ -1,12 +1,3 @@
-html {
-    height: 100%;
-}
-body {
-    min-height: 100%;
-    position: relative;
-    padding-bottom: 50px;
-}
-
 .footer {
     background-color: black;
     position: absolute;
@@ -18,33 +9,6 @@ body {
     color: white;
 }
 
-.navbar {
-    margin-bottom: 0px !important;
-}
-
-.business-header {
-    height: 50vh;
-    min-height: 300px;
-    background: url('https://placehold.it/1920x400') center center no-repeat scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-    margin-bottom: 20px;
-}
-
-.max-height {
-    height: 100%;
-}
-
-.home {
-    margin-top: 20px;
-}
-
-.home__about {
-    margin-bottom: 20px;
-}
-
 .demo-auth-session__form {
     margin-top: 20px;
 }
@@ -53,8 +17,4 @@ body {
     border-radius: 5px;
     padding: 10px;
     border: 1px solid lightgray;
-}
-
-.flash {
-    margin: 20px 0px;
 }
