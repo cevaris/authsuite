@@ -1,7 +1,7 @@
 import AppContainer from './containers/AppContainer';
+import AuthSessionContainer from './containers/AuthSessionContainer';
 import Error404 from './components/Shared/Error404';
 import HomeContainer from './containers/HomeContainer';
-import AuthSessionContainer from './containers/AuthSessionContainer';
 import React from 'react';
 import { Route } from 'react-router';
 

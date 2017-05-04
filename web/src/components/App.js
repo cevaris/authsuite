@@ -1,3 +1,4 @@
+import FlashContainer from '../containers/FlashContainer';
 import PropTypes from 'prop-types';
 import { Footer, Header } from './Shared';
 import React, { Component } from 'react';
@@ -14,6 +15,7 @@ export default class App extends Component {
     return (
       <div>
         <Header />
+        <FlashContainer />
         {this.props.children}
         <Footer />
       </div>
@@ -21,6 +23,12 @@ export default class App extends Component {
   }
 
   static propTypes = {
-    children: PropTypes.object
+    children: PropTypes.object,
+    flash: PropTypes.shape({
+      level: PropTypes.string.isRequired,
+      message: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      showFlash: PropTypes.bool.isRequired
+    }).isRequired
   }
 }

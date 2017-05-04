@@ -1,7 +1,7 @@
-import {authSessionStates} from "../../constants";
-import PropTypes from "prop-types";
-import React, {Component} from "react";
-import {Breadcrumb, Button, Col, Row} from "react-bootstrap";
+import { authSessionStates } from '../../constants';
+import PropTypes from 'prop-types';
+import { Breadcrumb, Button, Col, Row } from 'react-bootstrap';
+import React, { Component } from 'react';
 
 export default class AuthSession extends Component {
 
@@ -9,21 +9,21 @@ export default class AuthSession extends Component {
     return this.props.params.token;
   };
 
-  acceptAuthSession = () => {
+  _handleAcceptAuthSession = () => {
     this.props.actions.acceptAuthSession(this.paramToken());
   };
 
-  rejectAuthSession = () => {
+  _handleRejectAuthSession = () => {
     this.props.actions.rejectAuthSession(this.paramToken());
   };
 
   breadcrumbs = () => {
     return (
       <Breadcrumb>
-        <Breadcrumb.Item href="/">
+        <Breadcrumb.Item href='/'>
           Home
         </Breadcrumb.Item>
-        <Breadcrumb.Item href="#demo">
+        <Breadcrumb.Item href='#demo'>
           Auth Session
         </Breadcrumb.Item>
         <Breadcrumb.Item active>
@@ -40,27 +40,27 @@ export default class AuthSession extends Component {
           block
           bsSize='large'
           bsStyle='primary'
-          disabled={!this.props.loadedGetAuthSession}
-          onClick={this.acceptAuthSession}>Accept</Button>
+          disabled={this.props.disableAuthSessionForm}
+          onClick={this._handleAcceptAuthSession}>Accept</Button>
         <Button
           block
           bsSize='large'
           bsStyle='danger'
-          disabled={!this.props.loadedGetAuthSession}
-          onClick={this.rejectAuthSession}>Cancel</Button>
+          disabled={this.props.disableAuthSessionForm}
+          onClick={this._handleRejectAuthSession}>Cancel</Button>
       </div>
     );
   };
 
   renderAcceptedState = () => {
     return (
-      <div className="text-center"><h1>Success</h1></div>
+      <div className='text-center'><h1>Auth Session has been Accepted!</h1></div>
     );
   };
 
   renderRejectedState = () => {
     return (
-      <div className="text-center"><h1>Rejected</h1></div>
+      <div className='text-center'><h1>Auth Session has been Rejected!</h1></div>
     );
   };
 
@@ -69,12 +69,11 @@ export default class AuthSession extends Component {
   }
 
   render() {
-    console.log(this.props.authSession);
     const isRejected = this.props.authSession.state === authSessionStates.rejected;
     const isAccepted = this.props.authSession.state === authSessionStates.accepted;
 
     let toRender = this.renderButtons();
-    if(this.props.loadedGetAuthSession) {
+    if (this.props.loadedGetAuthSession) {
       if (isRejected) {
         toRender = this.renderRejectedState();
       }
@@ -84,8 +83,8 @@ export default class AuthSession extends Component {
     }
 
     return (
-      <div className="container">
-        <div className="auth-session">
+      <div className='container'>
+        <div className='auth-session'>
 
           {this.breadcrumbs()}
 
@@ -93,7 +92,7 @@ export default class AuthSession extends Component {
             <Col md={3}/>
             <Col md={6}>
 
-              <div className="well" style={{maxWidth: 400, margin: '0 auto 10px'}}>
+              <div className='well' style={{ maxWidth: 400, margin: '0 auto 10px' }}>
                 {toRender}
               </div>
 
@@ -115,7 +114,9 @@ export default class AuthSession extends Component {
     authSession: PropTypes.shape({
       state: PropTypes.string.isRequired
     }).isRequired,
-    loadedGetAuthSession: PropTypes.bool.isRequired
+    disableAuthSessionForm: PropTypes.bool.isRequired,
+    loadedGetAuthSession: PropTypes.bool.isRequired,
+    params: PropTypes.object.isRequired
   }
 
 }

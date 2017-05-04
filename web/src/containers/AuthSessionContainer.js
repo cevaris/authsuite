@@ -1,7 +1,7 @@
 import * as AuthSessionActions from '../actions/authSession';
+import AuthSession from '../components/AuthSession';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import AuthSession from '../components/AuthSession';
 
 function mapStateToProps(state) {
   return {

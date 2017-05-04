@@ -1,4 +1,5 @@
-const initialState = {};
+const initialState = {
+};
 
 export default function application(state = initialState, action = {}) {
   switch (action.type) {

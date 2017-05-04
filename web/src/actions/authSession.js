@@ -1,11 +1,11 @@
-import {apiAcceptAuthSession, apiGetAuthSession, apiRejectAuthSession} from "../api/authSession";
+import { apiAcceptAuthSession, apiGetAuthSession, apiRejectAuthSession } from '../api/authSession';
 
 export const ACCEPT_AUTH_SESSION = 'ACCEPT_AUTH_SESSION';
 export const REJECT_AUTH_SESSION = 'REJECT_AUTH_SESSION';
 export const GET_AUTH_SESSION = 'GET_AUTH_SESSION';
 
 export const getAuthSession = (token) => {
-  console.log("got here", token);
+  console.log('got here', token);
   return (dispatch) => apiGetAuthSession(token)
     .then((response) => {
       dispatch({
@@ -14,7 +14,7 @@ export const getAuthSession = (token) => {
       });
     })
     .catch((error) => {
-      console.log('error', error)
+      console.log('error', error);
       // dispatch({
       //   type: ADD_API_ERROR,
       //   title: errorMessages.couldNotAuthenticateUser,
@@ -30,10 +30,10 @@ export const acceptAuthSession = (token) => {
         type: ACCEPT_AUTH_SESSION
       });
 
-      return dispatch(getAuthSession(token))
+      return dispatch(getAuthSession(token));
     })
     .catch((error) => {
-      console.log('error', error)
+      console.log('error', error);
       // dispatch({
       //   type: ADD_API_ERROR,
       //   title: errorMessages.couldNotAuthenticateUser,
@@ -42,7 +42,6 @@ export const acceptAuthSession = (token) => {
     });
 };
 
-
 export const rejectAuthSession = (token) => {
   return (dispatch) => apiRejectAuthSession(token)
     .then((response) => {
@@ -50,10 +49,10 @@ export const rejectAuthSession = (token) => {
         type: REJECT_AUTH_SESSION
       });
 
-      return dispatch(getAuthSession(token))
+      return dispatch(getAuthSession(token));
     })
     .catch((error) => {
-      console.log('error', error)
+      console.log('error', error);
       // dispatch({
       //   type: ADD_API_ERROR,
       //   title: errorMessages.couldNotAuthenticateUser,

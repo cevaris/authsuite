@@ -1,12 +1,13 @@
-import {ACCEPT_AUTH_SESSION, GET_AUTH_SESSION, REJECT_AUTH_SESSION} from '../actions/authSession'
+import { ACCEPT_AUTH_SESSION, GET_AUTH_SESSION, REJECT_AUTH_SESSION } from '../actions/authSession';
 
 const initialState = {
   acceptedAuthSession: false,
-  authSession : {
+  authSession: {
     state: 'sent'
   },
   loadedGetAuthSession: false,
-  rejectedAuthSession: false
+  rejectedAuthSession: false,
+  disableAuthSessionForm: true
 };
 
 export default function authSession(state = initialState, action = {}) {
@@ -20,7 +21,8 @@ export default function authSession(state = initialState, action = {}) {
       return {
         ...state,
         authSession: action.state,
-        loadedGetAuthSession: true
+        loadedGetAuthSession: true,
+        disableAuthSessionForm: false
       };
     case REJECT_AUTH_SESSION:
       return {
