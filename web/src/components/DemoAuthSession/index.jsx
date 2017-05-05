@@ -5,14 +5,15 @@ import React, { Component } from 'react';
 
 export default class DemoAuthSession extends Component {
   render() {
+    console.log(this.props);
     return (
       <div className='demo-auth-session'>
         <Row>
           <Col sm={6}>
-            <SmsDemo/>
+            <SmsDemo {...this.props} />
           </Col>
           <Col sm={6}>
-            <EmailDemo/>
+            <EmailDemo {...this.props} />
           </Col>
         </Row>
       </div>

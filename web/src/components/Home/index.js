@@ -1,7 +1,7 @@
-import { Card } from '../Shared';
-import DemoAuthSession from '../Demo';
-import { Button, Col, Row } from 'react-bootstrap';
-import React, { Component } from 'react';
+import {Card} from "../Shared";
+import {Button, Col, Row} from "react-bootstrap";
+import React, {Component} from "react";
+import DemoAuthSessionContainer from "../../containers/DemoAuthSessionContainer";
 
 export default class Home extends Component {
   render() {
@@ -74,7 +74,7 @@ export default class Home extends Component {
           </Row>
 
           <div className='home__demo'>
-            <DemoAuthSession />
+            <DemoAuthSessionContainer />
           </div>
 
         </div>

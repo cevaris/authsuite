@@ -17,6 +17,10 @@ export default class SmsDemo extends Component {
           </FormGroup>
 
           <FormGroup>
+            <FormControl name='identity_type' type='hidden' value='phone'/>
+          </FormGroup>
+
+          <FormGroup>
             <Button bsStyle='primary' disabled type='submit'>
               Send Text
             </Button>
