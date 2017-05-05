@@ -1,7 +1,7 @@
-import {Card} from "../Shared";
-import DemoAuthSession from "../Demo";
-import {Button, Col, Row} from "react-bootstrap";
-import React, {Component} from "react";
+import { Card } from '../Shared';
+import DemoAuthSession from '../Demo';
+import { Button, Col, Row } from 'react-bootstrap';
+import React, { Component } from 'react';
 
 export default class Home extends Component {
   render() {

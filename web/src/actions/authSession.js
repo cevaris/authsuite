@@ -1,5 +1,5 @@
-import {apiAcceptAuthSession, apiGetAuthSession, apiRejectAuthSession} from "../api/authSession";
-import {SHOW_FLASH} from "./flash";
+import { SHOW_FLASH } from './flash';
+import { apiAcceptAuthSession, apiGetAuthSession, apiRejectAuthSession } from '../api/authSession';
 
 export const ACCEPT_AUTH_SESSION = 'ACCEPT_AUTH_SESSION';
 export const REJECT_AUTH_SESSION = 'REJECT_AUTH_SESSION';
@@ -17,7 +17,7 @@ export const getAuthSession = (token) => {
       dispatch({
         type: SHOW_FLASH,
         title: 'API Failure',
-        message: [error.message]
+        message: [ error.message ]
       });
     });
 };
@@ -35,8 +35,8 @@ export const acceptAuthSession = (token) => {
       dispatch({
         type: SHOW_FLASH,
         title: 'API Failure',
-        message: [error.message]
-      })
+        message: [ error.message ]
+      });
     });
 };
 
@@ -53,7 +53,7 @@ export const rejectAuthSession = (token) => {
       dispatch({
         type: SHOW_FLASH,
         title: 'API Failure',
-        message: [error.message]
-      })
+        message: [ error.message ]
+      });
     });
 };

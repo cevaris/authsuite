@@ -1,7 +1,7 @@
-import {RESET_FLASH, SHOW_FLASH} from '../actions/flash';
+import { RESET_FLASH, SHOW_FLASH } from '../actions/flash';
 
 const initialState = {
-  message: [''],
+  message: [ '' ],
   level: 'info',
   title: '',
   showFlash: false
@@ -16,7 +16,7 @@ export default function flash(state = initialState, action = {}) {
         message: action.message || initialState.message,
         level: action.level || initialState.level,
         title: action.title || initialState.title,
-        showFlash: true,
+        showFlash: true
       };
     default:
       return state;

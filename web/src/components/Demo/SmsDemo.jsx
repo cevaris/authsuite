@@ -1,5 +1,5 @@
-import {Button, Col, ControlLabel, Form, FormControl, FormGroup, HelpBlock, Row} from "react-bootstrap";
-import React, {Component} from "react";
+import { Button, ControlLabel, Form, FormControl, FormGroup, HelpBlock } from 'react-bootstrap';
+import React, { Component } from 'react';
 
 export default class SmsDemo extends Component {
   render() {
@@ -17,7 +17,7 @@ export default class SmsDemo extends Component {
           </FormGroup>
 
           <FormGroup>
-            <Button bsStyle='primary' type='submit' disabled>
+            <Button bsStyle='primary' disabled type='submit'>
               Send Text
             </Button>
           </FormGroup>
