@@ -18,10 +18,6 @@ body {
     color: white;
 }
 
-.demo-auth-session__form {
-    margin-top: 20px;
-}
-
 .demo-auth-session {
     border-radius: 5px;
     padding: 10px;
