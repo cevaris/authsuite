@@ -50,6 +50,6 @@ export default class EmailDemo extends Component {
   static propTypes = {
     actions: PropTypes.shape({
       postDemoAuthSession: PropTypes.func.isRequired
-    }).isRequired
+    }).isRequired,
   }
 }

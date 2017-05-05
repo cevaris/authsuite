@@ -1,4 +1,5 @@
 import { Button, ControlLabel, Form, FormControl, FormGroup, HelpBlock } from 'react-bootstrap';
+import PropTypes from "prop-types";
 import React, { Component } from 'react';
 
 export default class SmsDemo extends Component {
@@ -30,4 +31,11 @@ export default class SmsDemo extends Component {
       </div>
     );
   }
+
+  static propTypes = {
+    actions: PropTypes.shape({
+      postDemoAuthSession: PropTypes.func.isRequired
+    }).isRequired,
+  }
+
 }

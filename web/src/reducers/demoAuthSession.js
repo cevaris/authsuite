@@ -1,9 +1,11 @@
-import {POST_DEMO_AUTH_SESSION} from "../actions/demoAuthSession";
+import {GET_DEMO_AUTH_SESSION, POST_DEMO_AUTH_SESSION} from "../actions/demoAuthSession";
 
 const initialState = {
-  authSession: {
-    state: 'sent'
+  demoAuthSession: {
+    receipt: '',
+    state: 'sent',
   },
+  demoAuthSessionCreated: false,
 };
 
 export default function demoAuthSession(state = initialState, action = {}) {
@@ -11,7 +13,13 @@ export default function demoAuthSession(state = initialState, action = {}) {
     case POST_DEMO_AUTH_SESSION:
       return {
         ...state,
-        authSession: action.state
+        demoAuthSession: action.state,
+        demoAuthSessionCreated: true
+      };
+    case GET_DEMO_AUTH_SESSION:
+      return {
+        ...state,
+        demoAuthSession: action.state
       };
     default:
       return state;

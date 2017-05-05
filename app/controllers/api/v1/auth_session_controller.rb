@@ -8,7 +8,7 @@ class Api::V1::AuthSessionController < ApplicationController
     if @auth_session
       render json: @auth_session, serializer: AuthSessionTokenSerializer
     else
-      render status: :not_found, json: {message: "auth session found for receipt #{auth_session_by_token}"}
+      render status: :not_found, json: {message: "auth session found for token #{auth_session_by_token}"}
     end
   end
 
@@ -54,6 +54,7 @@ class Api::V1::AuthSessionController < ApplicationController
   end
 
   def create_auth_session(auth_session)
+    @auth_session.save!
     AuthSession.transaction do
       auth_session_saved = @auth_session.save!
 

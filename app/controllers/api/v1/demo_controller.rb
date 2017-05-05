@@ -6,23 +6,36 @@ class Api::V1::DemoController < ApplicationController
   before_action :demo_api_token
 
   def show
-  end
-
-  def create
-    response = post_create_auth_session(
+    response = get_status_auth_session(
         request.host_with_port,
         @api_token.token,
-        auth_session_params['identity'],
-        auth_session_params['identity_type']
+        receipt_params['receipt'],
     )
 
     response_json = JSON.parse(response.body)
-    puts response_json
 
     if response.status == 200
-      render json: {receipt: response_json['receipt']}
+      render json: response_json
     else
       render status: response.status, json: response_json
+    end
+  end
+
+  def create
+    rep = post_create_auth_session(
+        request.host_with_port,
+        @api_token.token,
+        params_auth_session['identity'],
+        params_auth_session['identity_type']
+    )
+    puts 'done posting', rep
+
+    response_json = JSON.parse(rep.body)
+
+    if rep.status == 200
+      render json: response_json
+    else
+      render status: rep.status, json: response_json
     end
   end
 
@@ -33,8 +46,12 @@ class Api::V1::DemoController < ApplicationController
     @api_token = ApiToken.find_by_token(demo_api_token)
   end
 
-  def auth_session_params
+  def params_auth_session
     params.permit(:identity, :identity_type)
+  end
+
+  def receipt_params
+    params.permit(:receipt)
   end
 
 end
