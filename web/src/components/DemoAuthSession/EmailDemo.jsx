@@ -9,11 +9,12 @@ export default class EmailDemo extends Component {
   _handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log({
+    const payload = {
       identity: findDOMNode(this.refs.identity).value,
       identity_type: findDOMNode(this.refs.identity_type).value,
-    });
+    };
 
+    this.props.actions.postDemoAuthSession(payload);
   };
 
   render() {

@@ -5,6 +5,8 @@
 </head>
 <body>
 <h1>Thanks for using AuthQuick, <%= @auth_session.identity %>!</h1>
-<a href="<%= api_v1_session_accept_url(token: @auth_session.token, format: :json) %>">Click Here To Authenticate</a>
+<a href="<%= " #{root_url}sessions/tokens/#{@auth_session.token}" %>">Go Authenticate</a>
+<br/>
+<br/>
 </body>
 </html>

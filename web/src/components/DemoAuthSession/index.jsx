@@ -5,7 +5,6 @@ import React, { Component } from 'react';
 
 export default class DemoAuthSession extends Component {
   render() {
-    console.log(this.props);
     return (
       <div className='demo-auth-session'>
         <Row>

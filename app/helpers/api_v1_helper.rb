@@ -7,6 +7,7 @@ module ApiV1Helper
       req.headers['Content-Type'] = 'application/json'
       req.headers[ApplicationController::API_KEY_HEADER_NAME] = api_token_token
       req.body = {identity: identity, identity_type: identity_type}.to_json
+      req.options.timeout = 5
     end
   end
 
