@@ -32,7 +32,7 @@ export default class Flash extends Component {
       resetFlash: PropTypes.func.isRequired
     }).isRequired,
     level: PropTypes.string.isRequired,
-    message: PropTypes.string.isRequired,
+    message: PropTypes.array.isRequired,
     showFlash: PropTypes.bool.isRequired,
     title: PropTypes.string.isRequired
   }

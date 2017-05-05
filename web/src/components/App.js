@@ -6,9 +6,8 @@ import React, { Component } from 'react';
 export default class App extends Component {
   componentDidMount() {
     window.fetch('/test.json')
-      .then((response) => response.json())
-      .then((json) => console.log(json, json))
-      .catch((error) => console.log(error));
+      .then((json) => console.log(json))
+      .catch((error) => console.log(error.message));
   }
 
   render() {
@@ -25,12 +24,6 @@ export default class App extends Component {
   }
 
   static propTypes = {
-    children: PropTypes.object,
-    flash: PropTypes.shape({
-      level: PropTypes.string.isRequired,
-      message: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      showFlash: PropTypes.bool.isRequired
-    }).isRequired
+    children: PropTypes.object
   }
 }
