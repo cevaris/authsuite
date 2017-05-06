@@ -24,3 +24,8 @@ body {
     border: 1px solid lightgray;
     margin: 20px 0px;
 }
+
+.demo-auth-session-well {
+    max-width: 400px;
+    margin: 10px;
+}

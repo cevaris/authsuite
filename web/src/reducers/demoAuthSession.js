@@ -4,6 +4,8 @@ const initialState = {
   demoAuthSession: {
     receipt: '',
     state: 'sent',
+    identity_type: '',
+    identity: '',
   },
   demoAuthSessionCreated: false,
 };

@@ -91,7 +91,7 @@ export default class AuthSession extends Component {
           <Col md={3}/>
           <Col md={6}>
 
-            <div className='well' style={{ maxWidth: 400, margin: '0 auto 10px' }}>
+            <div className='well demo-auth-session-well'>
               {toRender}
             </div>
 

@@ -39,6 +39,8 @@ export default class DemoAuthSession extends Component {
     demoAuthSession: PropTypes.shape({
       receipt: PropTypes.string.isRequired,
       state: PropTypes.string.isRequired,
+      identity_type: PropTypes.string.isRequired,
+      identity: PropTypes.string.isRequired,
     }).isRequired,
   }
 }

@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React, {Component} from "react";
+import {Col, Row} from "react-bootstrap";
 
 export default class WatchDemo extends Component {
 
@@ -16,10 +17,38 @@ export default class WatchDemo extends Component {
     this.pollStatus();
   }
 
+  renderStatus () {
+    const identityType = this.props.demoAuthSession.identity_type;
+    const identity = this.props.demoAuthSession.identity;
+
+    let toRender = `Check your ${identityType} (${identity}) to approve your auth session.`;
+    if (this.props.demoAuthSession.state === 'accepted') {
+      toRender = (<h1>Auth Session has been Accepted!</h1>)
+    }
+    if (this.props.demoAuthSession.state === 'rejected') {
+      toRender = (<h1>Auth Session has been Rejected!</h1>)
+    }
+
+    return (<div className='text-center'>{toRender}</div>);
+  }
+
   render() {
     return (
       <div className='demo-auth-session__form'>
-        State: {this.props.demoAuthSession.state}
+
+        <Row>
+          <Col md={3}/>
+          <Col md={6}>
+
+            <div className='well demo-auth-session-well'>
+              <div className='text-center'>{this.renderStatus()}</div>
+            </div>
+
+          </Col>
+          <Col md={3}/>
+        </Row>
+
+
       </div>
     );
   }
@@ -32,6 +61,8 @@ export default class WatchDemo extends Component {
     demoAuthSession: PropTypes.shape({
       receipt: PropTypes.string.isRequired,
       state: PropTypes.string.isRequired,
+      identity_type: PropTypes.string.isRequired,
+      identity: PropTypes.string.isRequired,
     }).isRequired,
   }
 }
