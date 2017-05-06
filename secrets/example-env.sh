@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-export EXAMPLE_VAR=
-export DEMO_API_TOKEN=
 export AWS_ACCESS_KEY_ID=
-export AWS_SECRET_ACCESS_KEY=
 export AWS_REGION=
+export AWS_SECRET_ACCESS_KEY=
+export DEMO_API_TOKEN=
+export RAILS_HOST=
 export TWILIO_API_SID=
 export TWILIO_API_TOKEN=
 export TWILIO_PHONE_NUMBER=
