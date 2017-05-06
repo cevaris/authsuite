@@ -6,6 +6,7 @@ class AuthSession < ApplicationRecord
 
   belongs_to :api_token
   before_save :default_values
+  before_validation :clean_values, on: :create
 
   validates :identity, :identity_type, presence: true
   validates_uniqueness_of :token, :receipt
@@ -49,6 +50,14 @@ class AuthSession < ApplicationRecord
     end
   end
 
+  def clean_values
+    if self.identity_type == 'phone'
+      if self.identity
+        self.identity = '+1'+self.identity.gsub(/[^\d,\.]/, '')
+      end
+    end
+  end
+
   def check_identity
     case self.identity_type
       when 'email'
@@ -56,6 +65,8 @@ class AuthSession < ApplicationRecord
         if self.identity.match(email_regex).nil?
           errors.add(:identity, "#{self.identity} is not a valid email")
         end
+      when 'phone'
+        # no validation on phone
       else
         errors.add(:identity_type, "'#{self.identity_type}' not supported")
     end

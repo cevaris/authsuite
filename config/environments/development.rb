@@ -56,4 +56,5 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :aws_sdk
 
   config.textris_log_level = :info
+  config.textris_delivery_method = [:twilio, :log]
 end
