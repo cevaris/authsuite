@@ -1,16 +1,17 @@
 import PropTypes from "prop-types";
 import React, {Component} from "react";
 import {Col, Row} from "react-bootstrap";
+import {authSessionStates} from "../../constants";
 
 export default class WatchDemo extends Component {
 
   pollStatus = () => {
     setTimeout(() => {
-      if (this.props.demoAuthSession.state === 'sent') {
+      if (this.props.demoAuthSession.state === authSessionStates.sent) {
         this.props.actions.getDemoAuthSession(this.props.demoAuthSession.receipt);
         this.pollStatus();
       }
-    }, 1000);
+    }, 2000);
   };
 
   componentWillMount() {
@@ -22,10 +23,10 @@ export default class WatchDemo extends Component {
     const identity = this.props.demoAuthSession.identity;
 
     let toRender = `Check your ${identityType} (${identity}) to approve your auth session.`;
-    if (this.props.demoAuthSession.state === 'accepted') {
+    if (this.props.demoAuthSession.state === authSessionStates.accepted) {
       toRender = (<h1>Auth Session has been Accepted!</h1>)
     }
-    if (this.props.demoAuthSession.state === 'rejected') {
+    if (this.props.demoAuthSession.state === authSessionStates.rejected) {
       toRender = (<h1>Auth Session has been Rejected!</h1>)
     }
 

@@ -17,13 +17,21 @@ export default class EmailDemo extends Component {
     this.props.actions.postDemoAuthSession(payload);
   };
 
+  getValidationState = () => {
+    // const length = this.state.value.length;
+    // if (length > 10) return 'success';
+    // else if (length > 5) return 'warning';
+    // else if (length > 0) return 'error';
+    return 'success';
+  };
+
   render() {
     return (
       <div className='demo-auth-session__form'>
 
         <Form onSubmit={this._handleSubmit}>
 
-          <FormGroup validationState='error'>
+          <FormGroup validationState={this.getValidationState()}>
             <ControlLabel>
               Email
             </ControlLabel>

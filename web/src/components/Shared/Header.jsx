@@ -14,7 +14,8 @@ class Header extends Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav pullRight>
-              <NavItem eventKey={1} href='#get-started'>Get Started</NavItem>
+              <NavItem eventKey={1} href='/demo'>Demo</NavItem>
+              <NavItem eventKey={2} href='#get-started'>Get Started</NavItem>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
