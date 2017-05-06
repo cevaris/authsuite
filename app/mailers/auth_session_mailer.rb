@@ -8,4 +8,5 @@ class AuthSessionMailer < ApplicationMailer
         subject: 'Authenticate AuthQuick'
     )
   end
+
 end
