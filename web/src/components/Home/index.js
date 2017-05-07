@@ -1,4 +1,4 @@
-import {Card} from "../Shared";
+import {Card} from "../Shared/index";
 import {Button, Col, Row} from "react-bootstrap";
 import React, {Component} from "react";
 import DemoAuthSessionContainer from "../../containers/DemoAuthSessionContainer";

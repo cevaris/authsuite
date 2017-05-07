@@ -1,6 +1,6 @@
 import FlashContainer from '../containers/FlashContainer';
 import PropTypes from 'prop-types';
-import { Footer, Header } from './Shared/index';
+import { Footer, Header} from './Shared/index';
 import React, { Component } from 'react';
 
 export default class App extends Component {
