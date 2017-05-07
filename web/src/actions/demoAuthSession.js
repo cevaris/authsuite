@@ -5,6 +5,7 @@ export const POST_DEMO_AUTH_SESSION = 'POST_DEMO_AUTH_SESSION';
 export const GET_DEMO_AUTH_SESSION = 'GET_DEMO_AUTH_SESSION';
 
 export const postDemoAuthSession = (payload) => {
+  debugger;
   return (dispatch) => apiPostDemoAuthSession(payload)
     .then((response) => {
       dispatch({
