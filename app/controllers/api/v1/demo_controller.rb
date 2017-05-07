@@ -28,7 +28,7 @@ class Api::V1::DemoController < ApplicationController
 
   def demo_api_key
     demo_api_key = Rails.application.secrets.demo_api_key
-    @api_key ||= ApiToken.find_by_token(demo_api_key)
+    @api_key ||= ApiKey.find_by_key(demo_api_key)
   end
 
   def params_auth_session
