@@ -13,7 +13,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header router={this.props.router}/>
         <div className='container'>
           <FlashContainer />
           {this.props.children}
@@ -24,6 +24,7 @@ export default class App extends Component {
   }
 
   static propTypes = {
-    children: PropTypes.object
+    children: PropTypes.object.isRequired,
+    router: PropTypes.object.isRequired,
   }
 }

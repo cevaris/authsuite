@@ -1,7 +1,8 @@
 import {Nav, Navbar, NavItem} from "react-bootstrap";
 import React from "react";
+import PropTypes from 'prop-types';
 
-export const Header = () => {
+export const Header = (props) => {
 
   const links = {
     demo: {key: 'demo', path: '/demo'},
@@ -11,10 +12,10 @@ export const Header = () => {
   const _handleSelectedKey = (selectedKey) => {
     console.log(selectedKey, selectedKey === links.demo.key);
     if(selectedKey === links.demo.key){
-      // props.router.push(links.demo.path);
+      props.router.push(links.demo.path);
     }
     if(selectedKey === links.getStarted.key){
-      // props.router.push(links.getStarted.path);
+      props.router.push(links.getStarted.path);
     }
   };
 
@@ -36,4 +37,8 @@ export const Header = () => {
       </Navbar>
     </div>
   );
+};
+
+Header.propTypes = {
+  router: PropTypes.object.isRequired,
 };
