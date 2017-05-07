@@ -20,11 +20,11 @@ export const SmsDemo = (props) => {
     <div className='demo-auth-session__form'>
 
       <form onSubmit={handleSubmit(props.actions.postDemoAuthSession)}>
-        <Field name="identity" type="tel" component={InputField} placeholder='555-123-4567' label="SMS"/>
+        <Field name="identity" type="tel" component={InputField} placeholder='Enter your Phone Number: ex. 555-123-4567' label="SMS/Text"/>
         <Field name="identity_type" component={HiddenField} />
 
         <button className='btn btn-primary' type='submit' disabled={pristine || submitting}>
-          Send Email
+          Send SMS/Text
         </button>
       </form>
 

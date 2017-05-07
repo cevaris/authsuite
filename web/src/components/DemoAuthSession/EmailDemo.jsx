@@ -25,7 +25,7 @@ export const EmailDemo = (props) => {
     <div className='demo-auth-session__form'>
 
       <form onSubmit={handleSubmit(props.actions.postDemoAuthSession)}>
-        <Field name="identity" type="email" component={InputField} label="Email" placeholder='myEmail@example.com'/>
+        <Field name="identity" type="email" component={InputField} label="Email" placeholder='Enter your Email: ex. myEmail@example.com'/>
         <Field name="identity_type" component={HiddenField} />
 
         <button className='btn btn-primary' type='submit' disabled={pristine || submitting}>
