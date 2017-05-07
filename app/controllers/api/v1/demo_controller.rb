@@ -1,7 +1,7 @@
 class Api::V1::DemoController < ApplicationController
   include ApiV1Helper
 
-  before_action :demo_api_token
+  before_action :demo_api_key
 
   def show_with_receipt
     auth_session_by_receipt
@@ -15,7 +15,7 @@ class Api::V1::DemoController < ApplicationController
 
   def create
     @auth_session = AuthSession.new(params_auth_session)
-    @auth_session.api_token = @api_token
+    @auth_session.api_key = @api_key
 
     if create_auth_session(@auth_session)
       render json: @auth_session, serializer: AuthSessionReceiptSerializer
@@ -26,9 +26,9 @@ class Api::V1::DemoController < ApplicationController
 
   private
 
-  def demo_api_token
-    demo_api_token = Rails.application.secrets.demo_api_token
-    @api_token ||= ApiToken.find_by_token(demo_api_token)
+  def demo_api_key
+    demo_api_key = Rails.application.secrets.demo_api_key
+    @api_key ||= ApiToken.find_by_token(demo_api_key)
   end
 
   def params_auth_session

@@ -4,7 +4,7 @@ class AuthSession < ApplicationRecord
   include ActiveModel::Serialization
   include AASM
 
-  belongs_to :api_token
+  belongs_to :api_key
   before_save :default_values
   before_validation :clean_values, on: :create
 

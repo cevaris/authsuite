@@ -1,6 +1,6 @@
 require 'securerandom'
 
-class ApiToken < ApplicationRecord
+class ApiKey < ApplicationRecord
   include ActiveModel::Serialization
 
   has_many :auth_sessions
@@ -8,7 +8,7 @@ class ApiToken < ApplicationRecord
 
   validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
   validates_uniqueness_of :email
-  validates_uniqueness_of :token
+  validates_uniqueness_of :key
 
   STATE_ACTIVE = 'active'
   STATE_DEACTIVATED = 'deactivated'
@@ -19,13 +19,13 @@ class ApiToken < ApplicationRecord
 
   def default_values
     self.state ||= STATE_ACTIVE
-    self.token ||= gen_token
+    self.key ||= gen_key
   end
 
-  def gen_token
+  def gen_key
     loop do
-      a_token = SecureRandom.hex(30)
-      break a_token unless ApiToken.exists?(token: a_token)
+      a_key = SecureRandom.hex(30)
+      break a_key unless ApiKey.exists?(key: a_key)
     end
   end
 

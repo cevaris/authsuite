@@ -15,14 +15,14 @@ ActiveRecord::Schema.define(version: 20170423152425) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "api_tokens", force: :cascade do |t|
+  create_table "api_keys", force: :cascade do |t|
     t.string   "email"
-    t.string   "token"
+    t.string   "key"
     t.integer  "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_api_tokens_on_email", unique: true, using: :btree
-    t.index ["token"], name: "index_api_tokens_on_token", unique: true, using: :btree
+    t.index ["email"], name: "index_api_keys_on_email", unique: true, using: :btree
+    t.index ["key"], name: "index_api_keys_on_key", unique: true, using: :btree
   end
 
   create_table "auth_sessions", force: :cascade do |t|
@@ -33,11 +33,11 @@ ActiveRecord::Schema.define(version: 20170423152425) do
     t.integer  "state",         null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.integer  "api_token_id",  null: false
-    t.index ["api_token_id"], name: "index_auth_sessions_on_api_token_id", using: :btree
+    t.integer  "api_key_id",    null: false
+    t.index ["api_key_id"], name: "index_auth_sessions_on_api_key_id", using: :btree
     t.index ["receipt"], name: "index_auth_sessions_on_receipt", unique: true, using: :btree
     t.index ["token"], name: "index_auth_sessions_on_token", unique: true, using: :btree
   end
 
-  add_foreign_key "auth_sessions", "api_tokens"
+  add_foreign_key "auth_sessions", "api_keys"
 end

@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   scope format: true, constraints: {format: :json} do
     namespace :api do
       namespace :v1 do
-        resources :tokens, controller: 'api_token', only: [:create]
-        get 'tokens', to: 'api_token#show', as: :token
+        resources :keys, controller: 'api_key', only: [:create]
+        get 'keys', to: 'api_key#show', as: :key
 
         post 'sessions/', to: 'auth_session#create', as: :sessions
         post 'sessions/tokens/:token/accept', to: 'auth_session#token_accept', as: :session_accept

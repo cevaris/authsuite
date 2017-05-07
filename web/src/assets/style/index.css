@@ -19,6 +19,9 @@ body {
 }
 
 .demo-auth-session {
+}
+
+.demo-auth-session__form {
     border-radius: 5px;
     padding: 10px;
     border: 1px solid lightgray;

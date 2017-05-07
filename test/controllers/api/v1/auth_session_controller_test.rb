@@ -2,12 +2,12 @@ require 'test_helper'
 
 class Api::V1::AuthSessionControllerTest < ActionDispatch::IntegrationTest
   test 'can create auth session' do
-    api_token = api_tokens(:one)
+    api_key = api_keys(:one)
     test_email = 'test@email.com'
 
     post api_v1_sessions_path(format: :json),
          params: {identity: test_email, identity_type: :email},
-         headers: {HEADER_API_TOKEN => api_token.token}
+         headers: {HEADER_API_TOKEN => api_key.key}
 
     assert_response :success
 
@@ -63,7 +63,7 @@ class Api::V1::AuthSessionControllerTest < ActionDispatch::IntegrationTest
     assert_equal expected_state, response.parsed_body['state']
 
     get api_v1_session_status_path(format: :json, receipt: auth_session.receipt),
-        headers: {HEADER_API_TOKEN => auth_session.api_token.token}
+        headers: {HEADER_API_TOKEN => auth_session.api_key.key}
     assert_response :success
     assert_equal expected_state, response.parsed_body['state']
   end

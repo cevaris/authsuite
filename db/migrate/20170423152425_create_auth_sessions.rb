@@ -10,7 +10,7 @@ class CreateAuthSessions < ActiveRecord::Migration[5.0]
       t.timestamps
     end
 
-    add_reference :auth_sessions, :api_token, index: true, foreign_key: true, null: false
+    add_reference :auth_sessions, :api_key, index: true, foreign_key: true, null: false
 
     add_index :auth_sessions, :token, unique: true
     add_index :auth_sessions, :receipt, unique: true

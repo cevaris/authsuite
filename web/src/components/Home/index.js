@@ -13,7 +13,7 @@ export default class Home extends Component {
             <Col sm={4}>
               <Card
                 body='Create api token, make a simple HTTP request.'
-                buttonLink='#get-started'
+                buttonLink='/get-started'
                 buttonText='Get Started!'
                 title='Setup is Quick'
               />
@@ -22,7 +22,7 @@ export default class Home extends Component {
             <Col sm={4}>
               <Card
                 body='You can authenticate via Email or SMS.'
-                buttonLink='#demo'
+                buttonLink='/demo'
                 buttonText='Test run'
                 title='Email/SMS'
               />
@@ -31,7 +31,7 @@ export default class Home extends Component {
             <Col sm={4}>
               <Card
                 body='Authenticate via your web browser or your phone.'
-                buttonLink='#show-video'
+                buttonLink='/show-video'
                 buttonText='Show me how'
                 title='Cross Platform'
               />

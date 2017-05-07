@@ -1,7 +1,7 @@
 class Api::V1::AuthSessionController < ApplicationController
   include ApiV1Helper
 
-  before_action :require_api_token, except: [:token_accept, :token_reject, :show_with_token]
+  before_action :require_api_key, except: [:token_accept, :token_reject, :show_with_token]
   before_action :auth_session_by_token, only: [:show_with_token, :token_accept, :token_reject]
   before_action :auth_session_by_receipt, only: [:show_with_receipt]
 
@@ -23,7 +23,7 @@ class Api::V1::AuthSessionController < ApplicationController
 
   def create
     @auth_session = AuthSession.new(auth_session_params)
-    @auth_session.api_token = @current_api_token
+    @auth_session.api_key = @current_api_key
 
     if create_auth_session(@auth_session)
       render json: @auth_session, serializer: AuthSessionReceiptSerializer
