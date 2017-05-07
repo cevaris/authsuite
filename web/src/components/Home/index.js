@@ -1,5 +1,5 @@
 import {Card} from "../Shared/index";
-import {Button, Col, Row} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
 import React, {Component} from "react";
 import DemoAuthSessionContainer from "../../containers/DemoAuthSessionContainer";
 
@@ -8,7 +8,22 @@ export default class Home extends Component {
     return (
       <div className='home'>
 
+        <div className='home__about'>
+          <Row>
+            <h2>Simple API/Service for quickly authorizing any action.</h2>
+            <Col sm={12}>
+              <ul>
+                <li><h4>Confirm an user's email, or phone.</h4></li>
+                <li><h4>Multi-Factor authentication.</h4></li>
+                <li><h4>Confirm vital (non-recoverable) actions.</h4></li>
+                <li><h4>Confirm user action is not really a executed by bot.</h4></li>
+              </ul>
+            </Col>
+          </Row>
+        </div>
+
         <div className='home__cards'>
+          <h2>Features</h2>
           <Row className='card-deck'>
             <Col sm={4}>
               <Card
@@ -39,45 +54,11 @@ export default class Home extends Component {
           </Row>
         </div>
 
-        <div className='home__about'>
-          <Row>
-            <Col sm={8}>
-              <h2>What We Do</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi
-                soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat
-                explicabo, maiores!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur
-                magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt
-                voluptate. Voluptatum.
-              </p>
-              <p>
-                <Button bsSize='large' bsStyle='primary'>Call to Action</Button>
-              </p>
-            </Col>
-            <Col sm={4}>
-              <h2>Contact Us</h2>
-              <address>
-                <strong>Start Bootstrap</strong>
-                <br/>3481 Melrose Place
-                <br/>Beverly Hills, CA 90210
-                <br/>
-              </address>
-              <address>
-                <abbr title='Phone'>P:</abbr> (123) 456-7890
-                <br/>
-                <abbr title='Email'>E:</abbr> <a href='mailto:#'>name@example.com</a>
-              </address>
-            </Col>
-          </Row>
-
-          <div className='home__demo'>
-            <DemoAuthSessionContainer />
-          </div>
-
+        <div className='home__demo'>
+          <h2>Try Demo</h2>
+          <DemoAuthSessionContainer />
         </div>
+
       </div>
     );
   }

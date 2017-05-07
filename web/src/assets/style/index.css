@@ -1,6 +1,7 @@
 html {
     height: 100%;
 }
+
 body {
     min-height: 100%;
     position: relative;
@@ -18,14 +19,18 @@ body {
     color: white;
 }
 
-.demo-auth-session {
+.home__about {
+    margin-bottom: 20px;
+}
+
+.home__cards {
+    margin-bottom: 20px;
 }
 
 .demo-auth-session__form {
     border-radius: 5px;
     padding: 10px;
     border: 1px solid lightgray;
-    margin: 20px 0px;
 }
 
 .demo-auth-session-well {
