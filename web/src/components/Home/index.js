@@ -9,8 +9,8 @@ export default class Home extends Component {
       <div className='home'>
 
         <div className='home__about'>
+          <h2>Simple API/Service for quickly authorizing any action.</h2>
           <Row>
-            <h2>Simple API/Service for quickly authorizing any action.</h2>
             <Col sm={12}>
               <ul>
                 <li><h4>Confirm an user's email, or phone.</h4></li>
@@ -29,7 +29,7 @@ export default class Home extends Component {
               <Card
                 body='Create api token, make a simple HTTP request.'
                 buttonLink='/get-started'
-                buttonText='Get Started!'
+                buttonText='Get API Key'
                 title='Setup is Quick'
               />
             </Col>

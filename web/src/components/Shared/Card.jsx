@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 export const Card = (props) => {
-  const imageUrl = props.imageUrl || 'https://placehold.it/200x200';
+  const imageUrl = props.imageUrl || 'https://placehold.it/400x200';
   return (
     <div className='card'>
       <img alt='' className='card-img-top img-fluid' src={imageUrl}/>

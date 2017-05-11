@@ -16,3 +16,8 @@ export const authSessionStates = {
   rejected: 'rejected',
   sent: 'sent'
 };
+
+export const links = {
+  demo: {key: 'demo', path: '/demo'},
+  apiKeyNew: {key: 'apiKeyNew', path: '/keys/new'},
+};
