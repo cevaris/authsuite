@@ -22,6 +22,7 @@
 
 node_modules/
 .idea/
+*.iml
 
 secrets/*
 !secrets/example-env.sh
