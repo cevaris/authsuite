@@ -1,5 +1,4 @@
 class Api::V1::AuthSessionController < ApplicationController
-  include ApiV1Helper
 
   before_action :require_api_key, except: [:token_accept, :token_reject, :show_with_token]
   before_action :auth_session_by_token, only: [:show_with_token, :token_accept, :token_reject]
@@ -49,6 +48,23 @@ class Api::V1::AuthSessionController < ApplicationController
   end
 
   private
+
+  def create_auth_session(auth_session)
+    ActiveRecord::Base.transaction do
+      auth_session_saved = auth_session.save!
+
+      # send notification
+      if auth_session.email?
+        AuthSessionMailer.build_auth_session(auth_session).deliver!
+      end
+      if auth_session.phone?
+        AuthSessionTexter.build_auth_session(auth_session).deliver
+      end
+
+      auth_session_saved
+    end
+  end
+
 
   rescue_from AASM::InvalidTransition do |exception|
     render status: :bad_request, json: {errors: [exception.message]}

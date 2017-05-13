@@ -1,19 +1,19 @@
 module ApiV1Helper
 
-  def create_auth_session(auth_session)
-    AuthSession.transaction do
-      auth_session_saved = auth_session.save!
+  def create_auth_session(api_key, payload)
+    url = "#{ENV['EXTERNAL_API']}#{api_v1_sessions_path(format: :json)}"
 
-      # send notification
-      if auth_session.email?
-        AuthSessionMailer.build_auth_session(auth_session).deliver!
-      end
-      if auth_session.phone?
-        AuthSessionTexter.build_auth_session(auth_session).deliver
-      end
+    HTTP.headers(:accept => "application/json")
+        .headers(ApplicationController::API_KEY_HEADER_NAME => api_key)
+        .post(url, json: payload)
+  end
 
-      auth_session_saved
-    end
+  def get_status_auth_session(api_key, receipt)
+    url = "#{ENV['EXTERNAL_API']}#{api_v1_session_status_path(receipt: receipt, format: :json)}"
+
+    HTTP.headers(:accept => "application/json")
+        .headers(ApplicationController::API_KEY_HEADER_NAME => api_key)
+        .get(url)
   end
 
 end

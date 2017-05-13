@@ -9,7 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.4.0'
 # Use SCSS for stylesheets
 # gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -56,7 +56,7 @@ end
 
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'aasm', '~> 4.12.0'
-gem 'faraday', '~> 0.11.0'
 gem 'aws-sdk-rails', '~> 1.0.1'
 gem 'twilio-ruby', '~> 4.13.0'
 gem 'textris', '~> 0.4.4'
+gem 'http', '~> 2.2.2'

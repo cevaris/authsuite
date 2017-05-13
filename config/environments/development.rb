@@ -52,9 +52,11 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_mailer.default_url_options = { :host => ENV['RAILS_HOST'] }
+  config.action_mailer.default_url_options = {host: ENV['EXTERNAL_HOST']}
   config.action_mailer.delivery_method = :aws_sdk
 
   config.textris_log_level = :info
   config.textris_delivery_method = [:twilio, :log]
+
+  config.web_console.whiny_requests = false
 end
