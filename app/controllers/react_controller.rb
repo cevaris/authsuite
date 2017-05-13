@@ -1,7 +1,7 @@
 class ReactController < ApplicationController
 
   def index
-    render file: 'public/index.html', layout: false
+    render file: 'public/index', layout: false
   end
 
   def show

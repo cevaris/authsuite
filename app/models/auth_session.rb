@@ -38,14 +38,14 @@ class AuthSession < ApplicationRecord
 
   def gen_token
     loop do
-      a_token = SecureRandom.hex(30)
+      a_token = "token-#{SecureRandom.hex(15)}"
       break a_token unless AuthSession.exists?(token: a_token)
     end
   end
 
   def gen_receipt
     loop do
-      a_receipt = SecureRandom.hex(30)
+      a_receipt = "receipt-#{SecureRandom.hex(15)}"
       break a_receipt unless AuthSession.exists?(receipt: a_receipt)
     end
   end

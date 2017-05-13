@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # devise_for :users
+
   scope format: true, constraints: {format: :json} do
     namespace :api do
       namespace :v1 do
-        resources :keys, controller: 'api_key', only: [:create]
-        get 'keys', to: 'api_key#show', as: :key
+        post 'keys', to: 'api_key#create', as: :api_keys
+        get 'keys', to: 'api_key#show', as: :api_key
 
         post 'sessions/', to: 'auth_session#create', as: :sessions
         post 'sessions/tokens/:token/accept', to: 'auth_session#token_accept', as: :session_accept

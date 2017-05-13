@@ -54,9 +54,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-gem 'active_model_serializers', '~> 0.10.0'
 gem 'aasm', '~> 4.12.0'
+gem 'active_model_serializers', '~> 0.10.0'
 gem 'aws-sdk-rails', '~> 1.0.1'
-gem 'twilio-ruby', '~> 4.13.0'
-gem 'textris', '~> 0.4.4'
+gem 'devise'
 gem 'http', '~> 2.2.2'
+gem 'textris', '~> 0.4.4'
+gem 'twilio-ruby', '~> 4.13.0'

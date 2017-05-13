@@ -24,7 +24,7 @@ class ApiKey < ApplicationRecord
 
   def gen_key
     loop do
-      a_key = SecureRandom.hex(30)
+      a_key = "key-#{SecureRandom.hex(15)}"
       break a_key unless ApiKey.exists?(key: a_key)
     end
   end
