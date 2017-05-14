@@ -3,6 +3,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 HEADER_API_TOKEN = 'X-AUTHQUICK-API-KEY'
+HEADER_AUTH_TOKEN = 'X-AUTHQUICK-AUTH-TOKEN'
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.

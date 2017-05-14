@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170423152425) do
+ActiveRecord::Schema.define(version: 20170513215407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,17 @@ ActiveRecord::Schema.define(version: 20170423152425) do
     t.index ["api_key_id"], name: "index_auth_sessions_on_api_key_id", using: :btree
     t.index ["receipt"], name: "index_auth_sessions_on_receipt", unique: true, using: :btree
     t.index ["token"], name: "index_auth_sessions_on_token", unique: true, using: :btree
+  end
+
+  create_table "auth_users", force: :cascade do |t|
+    t.string   "slug"
+    t.string   "email"
+    t.string   "auth_token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["auth_token"], name: "index_auth_users_on_auth_token", unique: true, using: :btree
+    t.index ["email"], name: "index_auth_users_on_email", unique: true, using: :btree
+    t.index ["slug"], name: "index_auth_users_on_slug", unique: true, using: :btree
   end
 
   add_foreign_key "auth_sessions", "api_keys"

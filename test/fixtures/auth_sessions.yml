@@ -1,4 +1,3 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 demo:
   identity: demo@example.com
   identity_type: <%= AuthSession.identity_types[:email] %>

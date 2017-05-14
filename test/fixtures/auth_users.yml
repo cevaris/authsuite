@@ -1,0 +1,9 @@
+one:
+  auth_token: one-auth-token
+  email: one@example.com
+  slug: one-slug
+
+two:
+  email: two@example.com
+  auth_token: two-auth-token
+  slug: two-slug

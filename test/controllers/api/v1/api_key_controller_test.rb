@@ -4,7 +4,7 @@ class Api::V1::ApiKeyControllerTest < ActionDispatch::IntegrationTest
   test 'can create api key' do
     test_email = 'test@example.com'
     api_key_params = {email: test_email}
-    post api_v1_keys_path(format: :json), params: api_key_params
+    post api_v1_api_keys_path(format: :json), params: api_key_params
     assert_response :success
 
     response_body = response.parsed_body
@@ -17,7 +17,7 @@ class Api::V1::ApiKeyControllerTest < ActionDispatch::IntegrationTest
   test 'can get api key' do
     api_key = api_keys(:one)
 
-    get api_v1_key_path(format: :json), headers: {HEADER_API_TOKEN => api_key.key}
+    get api_v1_api_key_path(format: :json), headers: {HEADER_API_TOKEN => api_key.key}
     assert_response :success
 
     response_body = response.parsed_body
@@ -28,13 +28,13 @@ class Api::V1::ApiKeyControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'can handle missing invalid parameters' do
-    post api_v1_keys_path(format: :json), params: {email: 'not valid email'}
+    post api_v1_api_keys_path(format: :json), params: {email: 'not valid email'}
     assert_response :bad_request
 
-    post api_v1_keys_path(format: :json), params: {email: ''}
+    post api_v1_api_keys_path(format: :json), params: {email: ''}
     assert_response :bad_request
 
-    post api_v1_keys_url(format: :json), params: {}
+    post api_v1_api_keys_path(format: :json), params: {}
     assert_response :bad_request
   end
 end
