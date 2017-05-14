@@ -1,4 +1,4 @@
-class Api::V1::AuthUserController < ApplicationController
+class Api::V1::Internal::AuthUserController < ApplicationController
 
   before_action :require_auth_token, except: [:create]
 

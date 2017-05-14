@@ -1,10 +1,10 @@
 require 'test_helper'
 
-class Api::V1::AuthSessionControllerTest < ActionDispatch::IntegrationTest
+class Api::V1::Internal::AuthUserControllerTest < ActionDispatch::IntegrationTest
   test 'can create auth user' do
     test_email = 'test@email.com'
 
-    post api_v1_auth_users_path(format: :json),
+    post api_v1_internal_auth_users_path(format: :json),
          params: {email: test_email}
 
     assert_response :success
@@ -19,7 +19,7 @@ class Api::V1::AuthSessionControllerTest < ActionDispatch::IntegrationTest
   test 'get user' do
     auth_user = auth_users(:one)
 
-    get api_v1_auth_user_path(format: :json, slug: auth_user.slug),
+    get api_v1_internal_auth_user_path(format: :json, slug: auth_user.slug),
         headers: {HEADER_AUTH_TOKEN => auth_user.auth_token}
 
     assert_response :success
@@ -34,7 +34,7 @@ class Api::V1::AuthSessionControllerTest < ActionDispatch::IntegrationTest
   test 'fails get user if not authenticated' do
     auth_user = auth_users(:one)
 
-    get api_v1_auth_user_path(format: :json, slug: auth_user.slug)
+    get api_v1_internal_auth_user_path(format: :json, slug: auth_user.slug)
 
     assert_response :unauthorized
   end

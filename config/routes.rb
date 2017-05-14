@@ -4,11 +4,14 @@ Rails.application.routes.draw do
   scope format: true, constraints: {format: :json} do
     namespace :api do
       namespace :v1 do
+        namespace :internal do
+          post 'users', to: 'auth_user#create', as: :auth_users
+          get 'users/:slug', to: 'auth_user#show', as: :auth_user
+        end
+
         post 'keys', to: 'api_key#create', as: :api_keys
         get 'keys', to: 'api_key#show', as: :api_key
 
-        post 'users', to: 'auth_user#create', as: :auth_users
-        get 'users/:slug', to: 'auth_user#show', as: :auth_user
 
         post 'sessions/', to: 'auth_session#create', as: :sessions
         post 'sessions/tokens/:token/accept', to: 'auth_session#token_accept', as: :session_accept
